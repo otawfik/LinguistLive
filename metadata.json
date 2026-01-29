@@ -1,0 +1,7 @@
+{
+  "name": "LinguistLive AI",
+  "description": "A high-performance language learning application featuring real-time voice conversations with Gemini 2.5. Practice speaking in multiple languages with adaptive difficulty and real-time transcriptions.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
