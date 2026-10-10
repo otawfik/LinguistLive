@@ -2,6 +2,8 @@
 
 [![build](https://github.com/otawfik/LinguistLive/actions/workflows/ci.yml/badge.svg)](https://github.com/otawfik/LinguistLive/actions/workflows/ci.yml)
 
+**[▶ Live demo](https://linguistlive.vercel.app)** — allow microphone access
+
 **Practice a language by actually speaking it — a real-time voice conversation with an AI
 coach that adapts to your level.**
 
