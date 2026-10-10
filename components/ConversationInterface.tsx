@@ -48,7 +48,11 @@ const ConversationInterface: React.FC<Props> = ({ config, onEnd }) => {
 
   const startLiveSession = useCallback(async () => {
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+      // a short-lived, single-use token from the server — the real API key never reaches the browser
+      const tokenRes = await fetch('/api/live-token', { method: 'POST' });
+      const { token, error } = await tokenRes.json().catch(() => ({}));
+      if (!tokenRes.ok || !token) throw new Error(error || 'Could not start a session.');
+      const ai = new GoogleGenAI({ apiKey: token, httpOptions: { apiVersion: 'v1alpha' } });
 
       inputAudioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 16000 });
       outputAudioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 24000 });
